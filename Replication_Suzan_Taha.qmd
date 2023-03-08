@@ -1,6 +1,6 @@
 ---
 title: "Starter Notebook"
-author: "You, Scientist"
+author: "Suzan Taha"
 format: html
 execute:
   keep-md: true
@@ -13,11 +13,107 @@ library(tidyverse)
 #Read in any data
 
 ```
+### Challenge 1
+In this block of code we are developing our four nucleotides, Adenine, Guanine, Cytosine, and Thymine and then proceeding to print them out into our notebook.
+```{r}
+nucleotides <- c("A","G","C", "T")
+nucleotides
+```
+### Challenge 2
+In this challenge we are giving our string a set number, in this case 15 so that our outcome is a random list of our nucleotides that is of length 15.
+```{r}
+randString <- 15
 
-## Getting Started
+randGenome <- sample(nucleotides, size = randString, replace = TRUE)
 
-You've used Quarto Notebooks a few times already, so you're starting to get the hang of this. Start by editing the Notebook `title:` and make sure you credit yourself as the `author:`. As a reminder, R-code appears in grey chunks throughout your notebook. Anything within these grey blocks must be executable R code. When you are outside of an R chunk, in a section of the notebook with a white background, you can type freely as if you were in a typical Word document.
+randGenome
+```
+### Challenge 3
+We are about to create another random string of length 1500. This string however is going to be collapsed into one large line of nucleotides rather than having quotation marks between each character. 
+```{r}
+randString2 <- 1500
+randGenome2 <- sample(nucleotides, size =randString2, replace = TRUE)
+randGenome2
 
-You'll quickly see the value of including text to explain your code chunks, and motivate your analysis. Trying to get help from a notebook that doesn't effectively use these discussions will be quite difficult. Additionally, future *you* will be very thankful to present-day *you* if you document your analyses well, and will be quick to curse present-day *you* when you do not. 
 
-Now, remove this *Getting Started* text and you'll be ready to start sciencing.
+paste(randGenome2, collapse = "")
+```
+### Challenge 4
+In challenge 4 we are setting a seed of 215 to allow my group members and I to obtain the same 100 values within our nucleotides. 
+```{r}
+set.seed(215)
+
+randString3 <- 100
+randGenome3 <- sample(nucleotides, size = randString3, replace = TRUE)
+randGenome3
+
+randGenome3 <- paste(randGenome3, collapse = "")
+
+```
+### Challenge 5
+In the code block below, we are learning how to use a for loop of 1 which will allow us to portray all 'j' values from 1 to 15. This is useful when we want to use the same chunck of code over and over again.
+```{r}
+myProduct <- 1
+
+for(j in 1:15){
+  myProduct <- myProduct + j
+  print(myProduct)
+}
+```
+### Challenge 6
+We are about to use a randome genome of length 10 and execute a for loop to determine each individual nucleotide that is present.
+```{r}
+genomeLength <- 10
+
+randGenome <- sample(nucleotides, size = genomeLength, replace = TRUE)
+
+randGenome <- paste(randGenome, collapse = "")
+randGenome
+
+for(i in 1:10){
+print(str_sub(randGenome, start=i, end= i))
+}
+```
+### Challenge 7
+We are about to use the same random genome as previously, however we are going to use a for loop and 'nchar' to give us the amount of Adenine's we have in our nucleotide as a number.
+```{r}
+randGenome
+adeninecount <- 0
+for(i in 1:nchar(randGenome)){
+  if(str_sub(randGenome, start = i, end = i) == "A"){
+    adeninecount <- adeninecount + 1
+  }
+}
+print(adeninecount)
+```
+### Challenge 8
+In challenge 8, we are going to us our same randome genome of length 10 to view how much of each base we have in our ten letter long nucleotide. 
+```{r}
+#Use this code chunk to complete Challenge 8
+randGenome
+adenine_count <- 0
+cytosine_count <- 0
+guanine_count <- 0
+thymine_count <- 0
+for(i in 1:nchar(randGenome)){
+  if(str_sub(randGenome, start = i, end = i) == "A"){
+    adenine_count <- adenine_count + 1
+  }
+  if(str_sub(randGenome, start = i, end = i) == "C"){
+    cytosine_count <- cytosine_count + 1
+  }
+  if(str_sub(randGenome, start = i, end = i) == "G"){
+    guanine_count <- guanine_count + 1
+  }
+  if(str_sub(randGenome, start = i, end = i) == "T"){
+    thymine_count <- thymine_count + 1
+  }
+}
+print(c(adenine_count,thymine_count,guanine_count, cytosine_count))
+```
+### Challenge 9
+We are about to read in a file that contains an extensive amount of nucleotides so that we can work with a bigger environment. 
+```{r}
+#Use this code chunk to complete Challenge 9
+
+```
