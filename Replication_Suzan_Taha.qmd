@@ -112,8 +112,55 @@ for(i in 1:nchar(randGenome)){
 print(c(adenine_count,thymine_count,guanine_count, cytosine_count))
 ```
 ### Challenge 9
-We are about to read in a file that contains an extensive amount of nucleotides so that we can work with a bigger environment. 
+We are about to read in a file that contains an extensive amount of nucleotides so that we can work with a bigger genome. Then we are going to program r to give us the exact number of each nucleotide - A, C, G, T
 ```{r}
 #Use this code chunk to complete Challenge 9
+vib_c <- scan("~/GITHUB/BioStatisticsAnalysis/longgenome.txt", what = "character", sep = NULL)
 
+vib_c
+adenine_count2 <- 0
+cytosine_count2 <- 0
+guanine_count2 <- 0
+thymine_count2 <- 0
+for(i in 1:nchar(vib_c)){
+  if(str_sub(vib_c, start = i, end = i) == "A"){
+    adenine_count2 <- adenine_count2 + 1
+  }
+  if(str_sub(vib_c, start = i, end = i) == "C"){
+    cytosine_count2 <- cytosine_count2 + 1
+  }
+  if(str_sub(vib_c, start = i, end = i) == "G"){
+    guanine_count2 <- guanine_count2 + 1
+  }
+  if(str_sub(vib_c, start = i, end = i) == "T"){
+    thymine_count2 <- thymine_count2 + 1
+  }
+}
+print(c(adenine_count2,thymine_count2,guanine_count2, cytosine_count2))
 ```
+Doing this, gave us an adenine count of 587,884 a thymine count of 589,422 a guanine count of 512,048, and a cytosine count of 527,146. 
+### Challenge 10
+We are about to use the rosalind dna to obtain a challenge genome and then proceed to depict how many of each nucleotide (A, C, G, or T) is stated.
+```{r}
+rosalind_dna <- scan("~/Desktop/rosalind_dna.txt", what = "character", sep = NULL)
+adenine_count3 <- 0
+cytosine_count3 <- 0
+guanine_count3 <- 0
+thymine_count3 <- 0
+for(i in 1:nchar(rosalind_dna)){
+  if(str_sub(rosalind_dna, start = i, end = i) == "A"){
+    adenine_count3 <- adenine_count3 + 1
+  }
+  if(str_sub(rosalind_dna, start = i, end = i) == "C"){
+    cytosine_count3 <- cytosine_count3 + 1
+  }
+  if(str_sub(rosalind_dna, start = i, end = i) == "G"){
+    guanine_count3 <- guanine_count3 + 1
+  }
+  if(str_sub(rosalind_dna, start = i, end = i) == "T"){
+    thymine_count3 <- thymine_count3 + 1
+  }
+}
+print(c(adenine_count3,thymine_count3,guanine_count3, cytosine_count3))
+```
+We obtained a count of 222 Adenine, 199 Thymine, 219 Guanine, and 241 Cytosine.

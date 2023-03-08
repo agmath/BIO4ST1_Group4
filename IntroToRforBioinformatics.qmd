@@ -262,6 +262,7 @@ vib_c <- scan("C:/Users/agilb/Desktop/Bioinformatics Data/VibrioCholerae.txt", w
 
 ```{r}
 #Use this code chunk to complete Challenge 9
+vib_c <- scan("~/BioStatisticsAnalysis/madlonggenome.txt")
 ```
 
 ------------------------------------------------------------------------
