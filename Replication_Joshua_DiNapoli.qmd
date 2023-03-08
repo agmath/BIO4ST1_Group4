@@ -27,6 +27,8 @@ nucleotides <- c("A", "G","C","T")
 nucleotides
 ```
 
+The code block combines the strings of the four nucleotides into the variable nucleotides and then prints it out.
+
 Challenge 2: Random string of 15 nucleotides
 
 ```{r}
@@ -36,6 +38,10 @@ randGenome <- sample(nucleotides, size = numNucleotide, replace = TRUE)
 
 randGenome
 ```
+
+A length of a genome is set at 15 with the variable numNucleotide. The variable randGenome is sampled (randomized) with the size of 15. Randgenome is printed out.
+
+Challenge 3
 
 ```{r}
 numNucleotide <- 1500
@@ -47,6 +53,8 @@ randGenome <- paste(randGenome, collapse ="")
 randGenome
 
 ```
+
+The length of nucleotides is set at 1500. The only difference between this and challenge 2 is that string is collapsed to display a sequence of letters instead of the full names (adenosine, guanine, thymine, cytosine).
 
 Challenge 4: Generate a random genome of 100 nucleotides and count adenosine
 
@@ -61,6 +69,8 @@ randGenome <- paste(randGenome, collapse ="")
 randGenome
 ```
 
+Challenge 5:
+
 ```{r}
 myProduct <- 1
 
@@ -69,7 +79,10 @@ for(j in 1:15){
   print(myProduct)
 }
 
+
 ```
+
+Creates a for loop where it runs through the variable j 15 times and whatever number it produces is added to myProduct
 
 ## Challenge 6
 
@@ -85,6 +98,8 @@ randGenome
 
 ```
 
+Setting the genome length to 20, we create a randomized sample based on the length and collapse the string to the letters A,G,C,T. We create a for loop for randGenome that is printed 10 times.
+
 ## Challenge 7
 
 ```{r}
@@ -97,6 +112,8 @@ for (i in 1:nchar(randGenome)){
 }
 }
 ```
+
+Using the for loop from challenge six, we have the code look for the string "A" or adenine in the genome and add it to a variable called Adenine count. We then print out the final adenine count.
 
 ```{r}
 randGenome
@@ -123,7 +140,7 @@ for (i in 1:nchar(randGenome)){
 
 ```
 
-The only options are AGCT. Nothing else is possible. We are already guaranteening we are covering all the conditions. If your can split the data into a dichotomy: else is otherwise instead of restrictive
+The only options are AGCT. Nothing else is possible. We are already guaranteening we are covering all the conditions. If your can split the data into a dichotomy: else is otherwise instead of restrictive. This expands on challenge 7 but adds in a frequency for the other nucleotides as well. The final print statement combines all the variables together.
 
 ## Challenge 9
 
@@ -151,6 +168,8 @@ for (i in 1:nchar(vib_c)){
 print(c(Cytosine_count,Thymine_count,Guanine_count,Adenine_count))
 
 ```
+
+Using the code from challenge 8, we import the genome of a cholera bacteria and produce an output that returns the frequency of the nucleotides.
 
 ## Challenge 10
 
