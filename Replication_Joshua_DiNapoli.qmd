@@ -174,6 +174,30 @@ Using the code from challenge 8, we import the genome of a cholera bacteria and 
 ## Challenge 10
 
 ```{r}
+rosalind <- "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+rosalind
+Adenine_count <- 0
+Thymine_count <- 0
+Guanine_count <- 0
+Cytosine_count <- 0
+for (i in 1:nchar(rosalind)){
+  if(str_sub(rosalind, start = i, end = i) == "A"){
+    Adenine_count <- Adenine_count + 1
+}
+  if(str_sub(rosalind,start = i, end = i) == "G"){
+      Guanine_count <- Guanine_count + 1
+  }
+  if(str_sub(rosalind, start = i, end = i) == "C"){
+    Cytosine_count <- Cytosine_count + 1
+  }
+  if(str_sub(rosalind, start = i, end = i) == "T"){
+    Thymine_count <- Thymine_count+1
+}
+} 
+print(c(Cytosine_count,Thymine_count,Guanine_count,Adenine_count))
+```
+
+```{r}
 rosalind <- scan("C:/Users/Joshua/OneDrive - SNHU/Desktop/Classes Spring 2023/Bioinformatics/rosalind_dna.txt", what = "character", sep = NULL)
 rosalind
 Adenine_count <- 0
@@ -196,3 +220,78 @@ for (i in 1:nchar(rosalind)){
 } 
 print(c(Cytosine_count,Thymine_count,Guanine_count,Adenine_count))
 ```
+
+# Origin of Replication
+
+## Challenge 1
+
+The goal of this challenge is to generate a random string of 2000 nucleotides and use the function command to count the frequency of cytosine in the genome string.
+
+```{r}
+nucleotide_frequency <- function(genomeString, nucleotide = "A"){
+  count <- 0
+  for(i in 1:nchar(genomeString)){
+    if(str_sub(genomeString, start = i, end = i) == nucleotide){
+      count <- count + 1
+    }
+  }
+  return(count)
+}
+
+nucleotide_frequency("ACTTGCGGGTATCGAG", "G")
+```
+
+
+    nucleotide_frequency <- function(genomeString, nucleotide = "A"){
+      count <- 0
+      for(i in 1:nchar(genomeString)){
+        if(str_sub(genomeString, start = i, end = i) == nucleotide){
+          count <- count + 1
+        }
+      }
+      return(count)
+    }
+
+    nucleotide_frequency("ACTTGCGGGTATCGAG", "G")
+
+```{r}
+
+genomeLength <- 2000
+randGenome <- sample(nucleotides, size = genomeLength, replace = TRUE)
+
+nucleotide_frequency <- function(randGenome, nucleotides = "C"){
+  count <- 0
+  for(i in 1:nchar(randGenome)){
+    if(str_sub(randGenome, start = i, end = i) == nucleotides){
+      count <- count + 1
+    }
+  }
+  return(count)
+}
+
+randGenome <- paste(randGenome, collapse = "")
+nucleotide_frequency(randGenome, "C")
+```
+
+My first attempt was to set the variable genomeLength to 2000. From there I created a random sample based on 2000 nucleotides. Then I created a function that counted the amount of cytosines and then returned a count. The problem is that when I returned my function, I only returned the string in nucleotide frequency (ACGT...ACGT) instead of the variable randGenome. Furthermore, I did not condense the list of nucleotides into a number (i.e the count of cytosine) using the paste function.
+
+## Challenge 2
+
+Build a function `rand_genome()` which takes a single parameter `k`,
+denoting the number of nucleotides in the genome we wish to generate.
+Your function should return a single genome string of length k.
+
+```{r}
+rand_Genome <- function(genomeString, nucleotides){
+    nucleotides <- c("A", "G","C","T")
+    rand_Genome <- sample(nucleotides, size = genomeString, replace = TRUE)
+    
+rand_Genome <- paste(rand_Genome, collapse = "")
+print(rand_Genome)}
+
+rand_Genome(12, nucleotides)
+```
+
+My initial logic was to create a sample function for randGenome where genomelength was set as k. Then I would run a function that would determine genomelength by running a for loop that looks for k and then adds it to the count. I would then paste a collapsed version of the text to produce a count of the genomelength. However the output produces just a string of non-randomized text and wont let me collapse the randGenome.
+
+Turns out the for loop was not necessary. We would be defining the size of the genome length through the variable genomeString.
