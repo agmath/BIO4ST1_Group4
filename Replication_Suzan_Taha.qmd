@@ -13,6 +13,7 @@ library(tidyverse)
 #Read in any data
 
 ```
+## An Introduction To Replication
 ### Challenge 1
 In this block of code we are developing our four nucleotides, Adenine, Guanine, Cytosine, and Thymine and then proceeding to print them out into our notebook.
 ```{r}
@@ -164,3 +165,59 @@ for(i in 1:nchar(rosalind_dna)){
 print(c(adenine_count3,thymine_count3,guanine_count3, cytosine_count3))
 ```
 We obtained a count of 222 Adenine, 199 Thymine, 219 Guanine, and 241 Cytosine.
+## DNA Replication Part 1
+### Challenge 1
+In challenge 1 we are creating a random genome of length 2000 and then counting the number of Cystosine's we have. To do this, we are using the `nucleotide frequency` function as well as the `paste` and `collapse` functions.
+```{r}
+genomeLength <- 2000
+
+randGenome <- sample(nucleotides, size = genomeLength, replace = TRUE)
+
+nucleotide_frequency <- function(genomeLength, nucleotides= "C"){
+  count <- 0
+  for(i in 1:nchar(genomeLength)){
+    if(str_sub(genomeLength, start = i, end = i) == nucleotides){
+     count <- count + 1
+    }
+  }
+  return(count)
+}
+randGenome <- paste(randGenome, collapse = "")
+nucleotide_frequency(randGenome, "C")
+```
+Our random genome of 2000 nucleotides gave us a cytosine count of 514 which will change everytime this code block is run. 
+### Challenge 2
+In challenge 2 we are going to create a random genome function that is associated with the value of k -- this will allow us to define k to be different numerical values. This code block should give us a single genome string of the length k. 
+
+```{r}
+rand_Genome <- function(genomeString, nucleotides){
+  nucleotides <- c("A","G","C", "T")
+  rand_Genome <- sample(nucleotides, size = genomeString, replace = TRUE)
+  
+rand_Genome <- paste(rand_Genome, collapse = "")
+print(rand_Genome)}
+
+rand_Genome(5, nucleotides)
+```
+### Challenge 3
+```{r}
+generate_3_mers <- function(genomeString) {
+  list_3_mers <- c()
+  for(i in 1:(nchar(genomeString) - 2)){
+  list_3_mers <- list_3_mers %>%
+  append(str_sub(genomeString, start = i, end = i + 2))
+    }
+  return(list_3_mers)
+}
+
+my_genome <- rand_Genome(5)
+my_genome
+generate_3_mers(my_genome)
+```
+### Challenge 4
+```{r}
+```
+### Challenge 5
+```{r}
+```
+
