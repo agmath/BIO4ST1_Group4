@@ -241,7 +241,6 @@ nucleotide_frequency <- function(genomeString, nucleotide = "A"){
 nucleotide_frequency("ACTTGCGGGTATCGAG", "G")
 ```
 
-
     nucleotide_frequency <- function(genomeString, nucleotide = "A"){
       count <- 0
       for(i in 1:nchar(genomeString)){
@@ -277,9 +276,7 @@ My first attempt was to set the variable genomeLength to 2000. From there I crea
 
 ## Challenge 2
 
-Build a function `rand_genome()` which takes a single parameter `k`,
-denoting the number of nucleotides in the genome we wish to generate.
-Your function should return a single genome string of length k.
+Build a function `rand_genome()` which takes a single parameter `k`, denoting the number of nucleotides in the genome we wish to generate. Your function should return a single genome string of length k.
 
 ```{r}
 rand_Genome <- function(genomeString, nucleotides){
@@ -289,9 +286,58 @@ rand_Genome <- function(genomeString, nucleotides){
 rand_Genome <- paste(rand_Genome, collapse = "")
 print(rand_Genome)}
 
-rand_Genome(12, nucleotides)
+rand_genome <- rand_Genome(2000, nucleotides)
 ```
 
 My initial logic was to create a sample function for randGenome where genomelength was set as k. Then I would run a function that would determine genomelength by running a for loop that looks for k and then adds it to the count. I would then paste a collapsed version of the text to produce a count of the genomelength. However the output produces just a string of non-randomized text and wont let me collapse the randGenome.
 
 Turns out the for loop was not necessary. We would be defining the size of the genome length through the variable genomeString.
+
+## Challenge 3
+
+```{r}
+generate_3_mers <- function(genomeString){
+  #list to hold 3-mers
+  list_3_mers <- c()
+  
+  #run throguh genome and append 3-mers to list
+  for(i in 1:(nchar(genomeString) - 2)){
+    list_3_mers <- list_3_mers%>%
+      append(str_sub(genomeString, start = i, end = i + 2))
+  }
+  #return list of 3-mers
+  return(list_3_mers)
+    
+}
+
+generate_3_mers(rand_genome)
+```
+
+For this challenge, I incorporated the ideas of the for loop and function to collect nucleotides in triplets (threemers) in a string of 2000. In the last function, I defined the list of nucleotides as rand_genome which included a set length (determined by genomestring) and nucleotides (which contained the substrings A,C,G,T to represent the nucleotides). For my new function, I input the argument genomestring (which would run whatever length I defined in the last code block).
+
+Then I defined a list as list_3\_mers as c(). This empty vector would collect three nucleotides in sets to be outputted later. I then created a for loop to run through the entirety of the genomestring (I defined the length in the last code block as 2000). The command i in 1:nchar would run through the entire genomestring regardless of its length. The -2 would ensure that there were no cutoffs and each nucleotide set was in a triplet/threemer. Every for loop would save to the vector list_3\_mers (list_3\_mers \<- list_3\_mers%\>%) and through the append function would take the substrings of genomestring (a,c,g,t) and add 2 to whatever substring to form a triplet. With the for loop run, I returned the list of 3mers.
+
+With the function complete, the final step was to run it with the rand_genome. While the genome string gives us a length, it does not include the specific nucleotides. For that reason, I input the argument rand_genome to run through the entire genome.
+
+The main problem I had with this challenge was due to my coding in the last challenge. At the end of the block, I defined rand_genome but forgot to save the command for reuse by writing rand_genome \<- rand_genome(2000, nucleotides). With that simple fix the code gave the desired output.
+
+## Challenge 4
+
+```{r}
+generate_k_mers <- function(genomeString, k){
+  #list to hold 3-mers
+  list_k_mers <- c()
+  
+  #run throguh genome and append 3-mers to list
+  for(i in 1:(nchar(genomeString) - (k-1))){
+    list_k_mers <- list_k_mers%>%
+      append(str_sub(genomeString, start = i, end = i + (k-1)))
+  }
+  #return list of 3-mers
+  return(list_k_mers)
+    
+}
+
+my_genome <- rand_Genome(10)
+generate_k_mers(my_genome,8)
+```
