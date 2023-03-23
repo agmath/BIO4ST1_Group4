@@ -187,7 +187,7 @@ nucleotide_frequency(randGenome, "C")
 ```
 Our random genome of 2000 nucleotides gave us a cytosine count of 514 which will change everytime this code block is run. 
 ### Challenge 2
-In challenge 2 we are going to create a random genome function that is associated with the value of k -- this will allow us to define k to be different numerical values. This code block should give us a single genome string of the length k. 
+In challenge 2 we are going to create a random genome function that is associated with the value of k -- this will allow us to define k to be different numerical values. This code block should give us a single genome string of the length k we chose - in this example we used 5. 
 
 ```{r}
 rand_Genome <- function(genomeString, nucleotides){
@@ -200,6 +200,7 @@ print(rand_Genome)}
 rand_Genome(5, nucleotides)
 ```
 ### Challenge 3
+Nucleotides are often read in groups of 3 and then changed into an amino acid. In challenge 3 we are creating a function called generate 3 mers to give us an output of every three nucleotides in our genome. 
 ```{r}
 generate_3_mers <- function(genomeString) {
   list_3_mers <- c()
@@ -215,9 +216,52 @@ my_genome
 generate_3_mers(my_genome)
 ```
 ### Challenge 4
+Similarly to challenge 3, in challenge 4 we are creating a function to give us not every three nucleotides but every k nucleotides. This will be useful when we want subsections of more than 3 or even less than 3 nucleotides. It allows us to be more flexible and define k with any numerical value.  
 ```{r}
+generate_k_mers <- function(genomeString, k) {
+  list_k_mers <- c()
+  for(i in 1:(nchar(genomeString) - (k-1))){
+  list_k_mers <- list_k_mers %>%
+  append(str_sub(genomeString, start = i, end = i+(k-1)))
+    }
+  return(list_k_mers)
+}
+  my_genome <- rand_Genome(10)
+  my_genome
+  generate_k_mers(my_genome,5)
+
 ```
 ### Challenge 5
+In challenge 5, we are looking for patterns within our genome. To do this, we are creating a function that uses two arguments, our genome string and pattern. This will look at our genome and count how many repetitive patterns we have. For example, my_genome currently is AGAGT, if I look for the pattern 'AG' I should get a value of two.
 ```{r}
+count_pattern <- function(genomeString, pattern){
+  count <- 0
+  k <- nchar(pattern)
+  for(i in 1:nchar(genomeString)){
+    if(str_sub(genomeString, start = i, end = i+(k-1)) == pattern){
+      count = count + 1
+    }
+  }
+  return(count)
+}
+my_genome <- rand_Genome(10)
+my_genome
+count_pattern(my_genome, "CT")
 ```
+### Challenge 6
+In the final challenge, we are using a random genome string from rosalind to determine how many of our certain pattern is visible. The pattern we are looking for in the chunck of text is "TAGGAACTA" and after running the count pattern function that was created prior, we got a numerical value of 25. 
+```{r}
+data <- scan("~/Desktop/rosalind_ba1a.txt", what = character())
 
+#The genomeString
+genomeString <- data[1]
+genomeString
+
+#The value of k
+pattern <- data[2]
+pattern
+
+
+count_pattern(genomeString, pattern)
+```
+## DNA Replication Part 2
