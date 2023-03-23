@@ -341,3 +341,21 @@ generate_k_mers <- function(genomeString, k){
 my_genome <- rand_Genome(10)
 generate_k_mers(my_genome,8)
 ```
+
+## Challenge 5
+
+```{r}
+count_pattern <- function(genomeString, pattern){
+  count <- 0
+  for(i in nchar(genomeString)){
+    if(str_sub(genomeString, start = i, end = i+1) == pattern){
+      count = count + 1
+    }
+  }
+  return(count)
+}
+
+count_pattern(genomeString, "TGCACCAA")
+```
+
+## Challenge 6
