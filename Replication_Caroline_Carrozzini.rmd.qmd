@@ -1,6 +1,6 @@
 ---
-title: "Starter Notebook"
-author: "You, Scientist"
+title: "DNA Replication"
+author: "Caroline Carrozzini"
 format: html
 execute:
   keep-md: true
@@ -10,7 +10,138 @@ execute:
 #Load in any packages you need
 library(tidyverse)
 
-#Read in any data
+```
+
+Replication Origin Part I
+
+Challenge 1
+```{r}
+nucleotides <- c("A","G","C","T")
+nucleotides
+```
+
+```{r}
+genomeLength <- 2000
+randGenome <- sample(nucleotides, size = genomeLength, replace = TRUE)
+nucleotide_frequency <- function(genomeString, nucleotide = "c"){
+  count <- 0
+  for(i in 1:nchar(genomeString)){
+    if(str_sub(genomeString, start = i, end = i) == nucleotide){
+      count <- count + 1
+    }
+  }
+  return(count)
+}
+randGenome <-paste(randGenome,collapse = "")
+nucleotide_frequency(randGenome, "C")
+```
+```{r}
+rand_Genome <- function(genomeString, nucleotides){
+    nucleotides <- c("A","G","T","C")
+    rand_Genome <- sample(nucleotides, size = genomeString, replace = TRUE)
+    
+rand_Genome <- paste(rand_Genome, collapse = "")
+print(rand_Genome)}
+
+rand_Genome(5, nucleotides)
+```
+
+```{r}
+generate_3_mers <- function(genomeString) {
+  list_3_mers <- c()
+  for(i in 1:(nchar(genomeString) - 2)){
+    list_3_mers <- list_3_mers %>%
+    append(str_sub(genomeString, start = i, end = i + 2))
+  }
+  return(list_3_mers)
+}
+
+my_genome <- rand_Genome(5)
+my_genome
+generate_3_mers(my_genome)
+```
+
+```{r}
+generate_k_mers <- function(genomeString, k) {
+  list_k_mers <- c()
+  for(i in 1:(nchar(genomeString) - (k-1))){
+    list_k_mers <- list_k_mers %>%
+    append(str_sub(genomeString, start = i, end = (k - 1)))
+  }
+  return(list_k_mers)
+}
 
 ```
+
+```{r}
+count_pattern <- function(genomeString, pattern){
+  count <- 0
+  k <- nchar(pattern)
+  for (i in 1:nchar(genomeString)) {
+  if(str_sub(genomeString, start = i, end = i+(k-1)) == pattern){
+    count = count + 1
+  }
+ }
+  return(count)
+}
+```
+
+```{r}
+data <- scan("~/Desktop/rosalind_ba1a.txt", what = character())
+genomeString <- data[1]
+genomeString
+
+pattern <- data[2]
+pattern
+
+count_pattern(genomeString, pattern)
+```
+
+DNA Replication Part 2
+
+```{r}
+generate_frequent_kmers <- function(genomeString, k){
+  kmers <- generate_k_mers(genomeString, k)
+  kmers <- unique(kmers)
+  kmer_counts <- rep(0, length(kmers))
+  for (i in 1:length(kmers)) {
+  kmers_count[i] <- count_pattern(genomeString, kmers [i])  
+  }
+  
+max_freq <- max(kmer_count)
+freq_kmers <- kmers[kmercounts == max_freq]
+return(freq_kmers)
+}
+```
+
+```{r}
+reverse_complement <- function(genomeSubString) {
+  splits <- strsplit(genomeSubString, "") [[1]]
+  splits
+  reversed_splits <- rev(splits)
+  reversed_splits
+  
+rev_complement <- c()
+  for (i in 1:length(reversed_splits)) {
+    if(reversed_splits [i] == "A"){
+        rev_complement <- append(rev_complement, "T")
+    }
+    if(reversed_splits [i] == "T"){
+        rev_complement <- append(rev_complement, "A")
+    }
+    if(reversed_splits [i] == "C"){
+        rev_complement <- append(rev_complement, "G")
+    }
+    if(reversed_splits [i] == "G"){
+        rev_complement <- append(rev_complement, "C")
+    
+  }
+}
+}
+#reverse_complement("ACCTG")
+
+return(reverse_complement())
+```
+```
+
 
