@@ -191,7 +191,7 @@ In challenge 2 we are going to create a random genome function that is associate
 
 ```{r}
 rand_Genome <- function(genomeString, nucleotides){
-  nucleotides <- c("A","G","C", "T")
+  nucleotides <- c("A","G","C","T")
   rand_Genome <- sample(nucleotides, size = genomeString, replace = TRUE)
   
 rand_Genome <- paste(rand_Genome, collapse = "")
@@ -246,7 +246,7 @@ count_pattern <- function(genomeString, pattern){
 }
 my_genome <- rand_Genome(10)
 my_genome
-count_pattern(my_genome, "CT")
+count_pattern(my_genome, "CA")
 ```
 ### Challenge 6
 In the final challenge, we are using a random genome string from rosalind to determine how many of our certain pattern is visible. The pattern we are looking for in the chunck of text is "TAGGAACTA" and after running the count pattern function that was created prior, we got a numerical value of 25. 
@@ -262,6 +262,67 @@ pattern <- data[2]
 pattern
 
 
+
 count_pattern(genomeString, pattern)
 ```
 ## DNA Replication Part 2
+
+### Challenge 1
+Below we are practicing using the generate_k_mers function with a genome to obtain a list of several 3-mers. 
+```{r} 
+generate_k_mers("ACACAGACATCCCACCCC",3)
+
+mystring <- c("T", "a", "h", "a")
+for(i in 1:4){
+  print(mystring[i])
+}
+```
+
+```{r}
+generate_frequent_kmers <- function(genomeString, k){
+  #get the kmers
+  kmers <- generate_k_mers(genomeString, k)
+  kmers <- unique(kmers)
+#count occurrences
+  kmer_counts <- rep(0, length(kmers))
+  for(i in 1:length(kmers)){
+   kmers_counts[i] <- count_pattern(genomeString, kmers[i])
+  }
+max_freq <- max(kmer_counts)
+freq_kmers <- kmers[kmercounts == max_freq]
+return(freq_kmers)
+}
+```
+
+### Challenge 2
+Using rev() to give us the reverse complement 
+```{r}
+reverse_complement <- function(genomeSubString) {
+  #reverse genomeSubstring
+  splits <- strsplit(genomeSubString, "") [[1]]
+  splits
+  
+  reversed_splits <- rev(splits)
+  reversed_splits
+  reverse_complement <- c()
+  
+  #Use if statements to construct complement of the reversed genomesubstring
+  for(i in 1:length(reversed_splits)){
+    if(reversed_splits[i] == "A"){
+      reverse_complement <- append(reverse_complement, "T")
+    }
+    if(reversed_splits[i] == "T"){
+      reverse_complement <- append(reverse_complement, "A")
+    }
+    if(reverse_complement[i] == "C"){
+      reverse_complement <- append(reverse_complement, "G")
+    }
+    if(reeverse_complement[i] == "G"){
+      reverse_complement <- append(reverse_complement, "C")
+    }
+  }
+  return(reverse_complement())
+}
+#reverse_complement("ATTCGAA")
+```
+
