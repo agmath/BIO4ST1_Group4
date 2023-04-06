@@ -347,15 +347,76 @@ generate_k_mers(my_genome,8)
 ```{r}
 count_pattern <- function(genomeString, pattern){
   count <- 0
-  for(i in nchar(genomeString)){
-    if(str_sub(genomeString, start = i, end = i+1) == pattern){
+  k <- nchar(pattern)
+  #print(k)
+  for(i in 1:nchar(genomeString)){
+    #print(str_sub(genomeString, start = i, end = i + k -1))
+    if(str_sub(genomeString, start = i, end = i+k-1) == pattern){
       count = count + 1
+      #print("hi")
     }
   }
   return(count)
 }
-
-count_pattern(genomeString, "TGCACCAA")
+my_genome <- rand_Genome(30)
+my_genome
+count_pattern(my_genome, "T")
 ```
 
 ## Challenge 6
+
+# Origin of Replication II
+
+## Challenge 1
+
+```{r}
+find_frequent_kmers <- function(genome,k){
+  #Get the Kmers
+  kmers <- generate_k_mers(genome,k)
+  Kmers <- unique(kmers)
+  #count occurences 
+  Kmer_counts <- rep(0,length(Kmers))
+  for(i in 1:length(Kmers)){
+    Kmer_counts[i]<-count_pattern(genome,Kmers[i])
+  }
+  #count of the most frequent kmers
+  max_count <- max(Kmer_counts)
+  #Get most frequent Kmers
+  frequent_kmers <- Kmers[Kmer_counts == max_count]
+  return(frequent_kmers)
+}
+my_genome <- rand_Genome(300)
+my_genome
+find_frequent_kmers(my_genome,3)
+```
+
+## Challenge 2
+
+```{r}
+reverse_complement <- function(genomeSubstring){
+  #reverse genomeSubstring
+  splits <- strsplit(genomeSubstring,"")[[1]]
+  reversed_splits <- rev(splits)
+  rev_complement <- c()
+  #use if statements to construct compliment of reversed genomeSubstring
+  for (i in 1:length(reversed_splits)){
+    if (reversed_splits[i] == "A"){
+      rev_complement <- append(rev_complement,"T")
+    }
+    if(reversed_splits[i] == "T"){
+      rev_complement <- append(rev_complement,"A")
+    }
+    if(reversed_splits[i] == "C"){
+      rev_complement <- append(rev_complement, "G")
+    }
+    if(reversed_splits[i] == "G"){
+      rev_complement <- append(rev_complement, "C")
+    }
+  }
+rev_complement <-  paste(rev_complement, collapse = "")
+return(rev_complement)
+}
+
+
+reverse_complement("CGTTA")
+```
