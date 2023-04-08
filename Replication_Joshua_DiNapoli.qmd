@@ -369,6 +369,8 @@ count_pattern(my_genome, "T")
 
 ## Challenge 1
 
+The goal of this code block is to determine the most frequent set of kmers in a random genome. Kmers is defined as a variable set of nucleotides that are combined. For example a kmer could be one nucleotide or 100 hundred. The length of the kmer is defined by the variable k which is contained in the find_frequent_kmers. The other argument in the function is genome which will be defined as a random genome value.
+
 ```{r}
 find_frequent_kmers <- function(genome,k){
   #Get the Kmers
@@ -386,11 +388,20 @@ find_frequent_kmers <- function(genome,k){
   return(frequent_kmers)
 }
 my_genome <- rand_Genome(300)
-my_genome
 find_frequent_kmers(my_genome,3)
 ```
 
+The first step of the function is defining the Kmers. Since it is any variable amount of nucleotides, we can use the argument genome and k. While the line of code seems redunant, the kmers \<- generate_k\_mers(genome,k) helps us define the variable when we call it later. Then we nest this variable into Kmers (capital K) to assign it the command unique. This ensures each kmer is unique and not redundant.
+
+With Kmers defined, its important to count the kmers. To accomplish this, we need to assign kmers to a new variable called Kmer_count. This variable will be assigned to the command rep. This will replicate the length of kmers and assign the count of 0.
+
+After setting Kmers_count, I set a for loop that ran through the entire length of the variable. I then assigned the count pattern function (defined in the last challenge) to Kmers_count with genome and Kmers as the arguments. This will essentially run through all of kmers and assign a count to Kmer_counts. After running the for loop, I use max to sort out the kmers that were most frequent and assign it to a new variable called max_count. The last step is to create a new variable called frequent_kmers which will be returned at the end of the function. This variable will redefine kmers as any kmer_counts that were equal to the max count. This ensures that when we call the kmers, it will pull only the counts that were equal to the maximum (or most frequent) no matter how many kmers we define.
+
+Once the function is created the only thing left to do is pull a random genome and call it in the function with a defined list of kmers. Kmers allows us to set the amount of nucleotides to be varied and we can finally set this in the final line of code.
+
 ## Challenge 2
+
+The goal of this code block is to write a function that can input a string of nucleotides and output a reverse of it.
 
 ```{r}
 reverse_complement <- function(genomeSubstring){
@@ -420,3 +431,41 @@ return(rev_complement)
 
 reverse_complement("CGTTA")
 ```
+
+To start, I created a function with genomeSubstring in parenthesis. Since this function is simply reversing a string and requires no numerical input, we only need that one argument. The first part of the function involves splitting the string. This helps us later on when we need to run a for loop that examines each part of the string individually. To do this we will create a new variable called splits and assign the genomeSubstring to it (with the strsplit function).
+
+From there we then assign splits to a new variable called reversed_splits with the rev function. This will reverse the order of the string by element.
+
+Now that the string is reversed, we need to find the complement pair. This will involve creating a for loop where we run through the entire length of reversed_splits. We then construct if statements that follow complimentary base pairing. So for example, if the reversed string had an adenine it would be complimented with a thymine (and a thymine would be complimented with an adenine). A guanine would be paired with a cytosine and vice versa. To construct this reverse complmenet, we need to create a new variable called rev complmenet and contain it in a list (denoted as c()). Collecting the strings, we then assign the append function to variable nested under each if statement. Once the for loop is finished, the rev complement is returned.
+
+With the function complement, the only thing left to do is call the function and input a string of nucleotides as the genome string.
+
+# Origin of Replication III
+
+## Challenge 1
+
+```{r}
+initialize_k_mer_dict <- function(k){
+  nucleotides <- c("A", "C", "G", "T")
+
+  k_mers_dict <- expand.grid(rep(list(nucleotides), k)) %>%
+    unite("k_mers", everything(), remove = TRUE, sep = "") %>%
+    unique() %>%
+    mutate(count = 0)
+  
+  return(k_mers_dict)
+}
+
+k_mers_dict <- initialize_k_mer_dict(9)
+
+
+```
+
+```{r}
+clump_finding < - function(genome, L, k, t){
+  #Define the initial window of nucleotides in the clump
+  str_sub(genome, start = 1, end = L)
+}
+```
+
+Since it should work for every genome you put in the function, avoid defining the genome right away. DNABoxes are usually divisible by three (due to presence of codons) but is not always nine (depends on species). String sub will allow us to grab a part of a string vs string split which actually splits the string.
