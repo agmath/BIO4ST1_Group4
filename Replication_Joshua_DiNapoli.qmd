@@ -444,6 +444,8 @@ With the function complement, the only thing left to do is call the function and
 
 ## Challenge 1
 
+The goal of this challenge is to identify what parts of a genome represent the origin of replication. In the genome, these are representend as DNABoxes. These parts of the genome can be identified by clumps of frequent nucleotides in a string. In our last challenge, we created a function that found frequent k_mers (variable amount of nucleotides) in a genome. However this function will find
+
 ```{r}
 initialize_k_mer_dict <- function(k){
   nucleotides <- c("A", "C", "G", "T")
@@ -458,14 +460,52 @@ initialize_k_mer_dict <- function(k){
 
 k_mers_dict <- initialize_k_mer_dict(9)
 
-
+k_mers_dict
 ```
 
 ```{r}
-clump_finding < - function(genome, L, k, t){
+clump_finding <- function(genome, L, k, t){
+  #Generate a kmer dictionary
+  my_dict <- initialize_k_mer_dict(k)
+  ng <- nchar(genome)
   #Define the initial window of nucleotides in the clump
-  str_sub(genome, start = 1, end = L)
-}
+  initial_window <-  str_sub(genome, 1, L)
+  #Get Kmer counts for initial window and fill in column of dictionary
+  #str_sub(initial_window,i, i + k-1)
+  #str_sub(initial_window, i, i + (k+1))
+  #Our for loop should start with 1 (i) and end with L. 
+  for (i in 1:(L-(k-1))){
+    curr_pattern <- str_sub(initial_window, i, i + (k-1))
+    curr_count <- count_pattern(initial_window, curr_pattern)
+    curr_row <- which(my_dict$k_mers == curr_pattern)
+    my_dict$count[curr_row] <- curr_count
+  }
+    #look for current pattern in kmer column of dictionary
+ candidates <- my_dict%>%
+    filter(count>=t)%>%
+    pull(k_mers)
+    #write current count in count column of that kmer row.
+  for (j in 2:(ng - (L-2))){
+    remove_kmer <- str_sub(genome,j-1, j - 1 + (k-1))
+    add_kmer <- str_sub(genome,j + (L-2) - (k-1), j + (L-2))
+    
+    rem_row <- which(my_dict$k_mers == remove_kmer)
+    add_row <- which(my_dict$k_mers == add_kmer)
+    
+    my_dict$count[rem_row] <- my_dict$count[rem_row] - 1
+    my_dict$count[add_row] <- my_dict$count[add_row] + 1
+    
+    if(my_dict$count[add_row] >= t){
+      candidates <- append(candidates, add_kmer)
+      candidates <- unique(candidates)
+    }
+  }
+  return(candidates)
+}  
+
+myGenome <- rand_Genome(700)
+clump_finding(myGenome,500, 2, 9)
+
 ```
 
-Since it should work for every genome you put in the function, avoid defining the genome right away. DNABoxes are usually divisible by three (due to presence of codons) but is not always nine (depends on species). String sub will allow us to grab a part of a string vs string split which actually splits the string.
+Since it should work for every genome you put in the function, avoid defining the genome right away. DNABoxes are usually divisible by three (due to presence of codons) but is not always nine (depends on species). String sub will allow us to grab a part of a string vs string split which actually splits the string.\
