@@ -293,36 +293,103 @@ freq_kmers <- kmers[kmercounts == max_freq]
 return(freq_kmers)
 }
 ```
-
+The function above allows us to use generate_k_mers and count_pattern to output the most frequent kmers along with giving us a maximum count. 
 ### Challenge 2
 Using rev() to give us the reverse complement 
 ```{r}
 reverse_complement <- function(genomeSubString) {
   #reverse genomeSubstring
   splits <- strsplit(genomeSubString, "") [[1]]
-  splits
   
   reversed_splits <- rev(splits)
-  reversed_splits
-  reverse_complement <- c()
   
+rev_complement <- c()
   #Use if statements to construct complement of the reversed genomesubstring
   for(i in 1:length(reversed_splits)){
     if(reversed_splits[i] == "A"){
-      reverse_complement <- append(reverse_complement, "T")
+      rev_complement <- append(rev_complement, "T")
     }
     if(reversed_splits[i] == "T"){
-      reverse_complement <- append(reverse_complement, "A")
+      rev_complement <- append(rev_complement, "A")
     }
-    if(reverse_complement[i] == "C"){
-      reverse_complement <- append(reverse_complement, "G")
+    if(reversed_splits[i] == "C"){
+      rev_complement <- append(rev_complement, "G")
     }
-    if(reeverse_complement[i] == "G"){
-      reverse_complement <- append(reverse_complement, "C")
+    if(reversed_splits[i] == "G"){
+      rev_complement <- append(rev_complement, "C")
     }
   }
-  return(reverse_complement())
+  return(rev_complement)
 }
-#reverse_complement("ATTCGAA")
+```
+Above, we have created a function that gives us the reverse complenet genome - where the genome is flipped in the anti-parallel direction and mathced to its significant pair. So, A would correspond with T and C would correspond with G. 
+```{r}
+reverse_complement("CGATC")
 ```
 
+### DNA Replication Part 3
+
+```{r}
+initialize_k_mer_dict <- function(k){
+  nucleotides <- c("A", "C", "G", "T")
+
+  k_mers_dict <- expand.grid(rep(list(nucleotides), k)) %>%
+    unite("k_mers", everything(), remove = TRUE, sep = "") %>%
+    unique() %>%
+    mutate(count = 0)
+  
+  return(k_mers_dict)
+}
+
+k_mers_dict <- initialize_k_mer_dict(9)
+```
+Below we are creating a dictionary of all the possible k-mers and initializing it with the count of 0 so that as we move forward through part 3, we can increase the count values. The 9 represents the amount of kmers we want specifically. 
+### Challenge 1
+In the challenge below, we are creating a function that allows us to look for high frequency kmers that occur in a section of the genome -- this will aid us in finding out DnaA boxes. To do this, we use parameters L which is the length of the window, k which is the kmer frequency, and t which tells us how much out kmers are appearing. Moving throughout the code, we will need to shift over one nucleotide, losing one in the beginning and adding one on the end of our window length. We are modifying our function to do this so that we can count each kmer value we desire and look for t amount of replications. 
+```{r}
+#window size = L 
+#k = length of kmer
+clump_finding <- function(genome, L, k, t){
+  initial_window <- str_sub(genome, start = 1, end = L)
+  #generating a kmer dictionary
+  my_dict <- initialize_k_mer_dict(k)
+  ng <- nchar(genome)
+  #count kmers in our window
+  for(i in 1:(L-(k+1))) {
+    current_pattern <- str_sub(initial_window, i, i+(k-1))
+    #look for kmer in current pattern in kmer column
+    curr_count <- count_pattern(initial_window, current_pattern)
+    #write curr count in the count column of that row
+    curr_row <- which(my_dict$k_mer == current_pattern)
+    my_dict$count[curr_row] <- curr_count
+  }
+  cadidates <- my_dict %>%
+  filter(count >= t) %>%
+  pull(k_mer)
+  for(j in 2:(ng-(L-2))) {
+    remove_kmer <- str_sub(genome, j-1, (j-1)+(k-1))
+    add_kmer <- str_sub(genome, j+(l-2), - (k-1), j +(L-2))
+     
+    rem_row <- which(kmer_dict$k_mers == remove_kmer)
+    add_row <- which(kmer_dict$k_mers == add_kmer)
+    
+    kmer_dict$count[rem_row] <- kmer_dict$count[rem_row] -1
+    kmer_dict$count[add_row] <- kmer_dict$count[add_row] +1
+    
+    if(kmer_dict$count[add_row] >= t){
+      canidates <- append(canidates, add_kmer)
+      canidates <- unique(canidates)
+      
+    }
+  }
+   return(canidates)
+}
+```
+
+Below, we are going to apply out clump finding function to the E.coli gene. 
+```{r}
+e.coli <- scan("~/Desktop/ecoli.txt", what = "character", sep = NULL)
+
+#clump_finding(e.coli, 500, 9, 3)
+```
+Because this e.coli gene with clump finding takes a very long time to run, our next goal is optimize the algorithm and figure out if there is a way we can get to the DNAa box quicker. 

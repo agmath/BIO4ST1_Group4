@@ -42,7 +42,7 @@ randGenome
 
 ::: {.cell-output .cell-output-stdout}
 ```
- [1] "T" "G" "A" "G" "T" "G" "G" "T" "C" "C" "A" "T" "T" "A" "T"
+ [1] "G" "T" "C" "T" "C" "C" "C" "T" "C" "A" "T" "A" "G" "A" "G"
 ```
 :::
 :::
@@ -60,90 +60,90 @@ randGenome2
 
 ::: {.cell-output .cell-output-stdout}
 ```
-   [1] "G" "A" "G" "C" "A" "C" "G" "G" "G" "G" "T" "C" "A" "G" "T" "C" "G" "G"
-  [19] "C" "T" "A" "G" "T" "C" "G" "A" "C" "T" "G" "A" "A" "A" "A" "C" "C" "T"
-  [37] "C" "G" "T" "G" "C" "A" "T" "T" "G" "A" "G" "C" "T" "A" "A" "C" "A" "T"
-  [55] "A" "A" "G" "C" "A" "A" "G" "C" "G" "C" "G" "C" "G" "A" "T" "T" "C" "T"
-  [73] "T" "C" "C" "G" "A" "A" "C" "T" "C" "G" "A" "A" "G" "C" "C" "G" "T" "G"
-  [91] "A" "A" "A" "A" "T" "C" "C" "A" "C" "G" "C" "C" "T" "C" "C" "C" "A" "G"
- [109] "T" "T" "G" "G" "C" "A" "T" "T" "T" "T" "A" "T" "G" "G" "C" "T" "G" "G"
- [127] "A" "T" "G" "T" "C" "C" "A" "C" "C" "T" "G" "T" "G" "G" "C" "G" "T" "G"
- [145] "T" "T" "G" "A" "T" "G" "C" "A" "G" "G" "G" "T" "C" "A" "T" "T" "A" "C"
- [163] "A" "G" "C" "A" "C" "T" "G" "T" "T" "T" "G" "G" "C" "A" "C" "A" "G" "T"
- [181] "A" "C" "G" "C" "A" "T" "A" "G" "A" "T" "T" "A" "T" "T" "G" "C" "T" "G"
- [199] "T" "T" "C" "C" "C" "G" "C" "G" "C" "G" "A" "A" "G" "G" "G" "G" "A" "G"
- [217] "C" "A" "A" "G" "G" "G" "C" "C" "T" "T" "A" "A" "C" "C" "A" "C" "A" "C"
- [235] "A" "T" "G" "T" "C" "C" "T" "C" "T" "C" "T" "G" "G" "T" "C" "C" "G" "T"
- [253] "T" "A" "T" "G" "G" "C" "A" "A" "A" "C" "T" "C" "T" "A" "T" "A" "A" "G"
- [271] "G" "A" "A" "T" "G" "A" "A" "G" "G" "C" "T" "T" "T" "T" "G" "A" "T" "C"
- [289] "A" "C" "G" "C" "A" "G" "T" "C" "G" "T" "G" "T" "C" "T" "T" "G" "A" "A"
- [307] "T" "A" "A" "T" "T" "T" "G" "G" "T" "T" "G" "A" "T" "T" "C" "C" "A" "G"
- [325] "A" "G" "G" "C" "A" "C" "G" "T" "A" "A" "C" "C" "G" "G" "C" "T" "T" "C"
- [343] "A" "A" "T" "T" "T" "G" "C" "A" "C" "T" "G" "G" "T" "C" "A" "T" "G" "G"
- [361] "T" "C" "G" "G" "T" "T" "A" "G" "A" "G" "A" "T" "C" "A" "T" "C" "C" "G"
- [379] "G" "G" "G" "G" "C" "G" "A" "G" "C" "C" "A" "G" "T" "T" "C" "C" "C" "A"
- [397] "T" "G" "T" "G" "G" "A" "T" "A" "T" "C" "T" "T" "T" "C" "A" "G" "T" "T"
- [415] "T" "T" "C" "A" "T" "C" "G" "G" "A" "G" "C" "G" "C" "G" "G" "C" "T" "T"
- [433] "C" "G" "G" "A" "C" "T" "T" "C" "T" "G" "G" "T" "C" "C" "T" "C" "T" "A"
- [451] "G" "T" "T" "T" "A" "C" "T" "C" "A" "A" "G" "G" "G" "A" "A" "C" "G" "T"
- [469] "C" "T" "G" "G" "G" "A" "T" "A" "T" "C" "A" "T" "T" "C" "T" "C" "G" "G"
- [487] "C" "C" "G" "C" "A" "A" "C" "G" "G" "T" "C" "T" "T" "A" "G" "C" "T" "T"
- [505] "G" "G" "G" "G" "A" "T" "T" "A" "A" "G" "A" "G" "C" "G" "C" "T" "T" "T"
- [523] "A" "G" "A" "C" "C" "C" "C" "G" "A" "A" "T" "A" "C" "C" "G" "A" "T" "G"
- [541] "G" "T" "G" "T" "T" "G" "T" "T" "T" "T" "G" "C" "A" "A" "A" "T" "C" "C"
- [559] "A" "A" "T" "T" "A" "T" "T" "G" "C" "C" "T" "G" "G" "A" "C" "G" "A" "T"
- [577] "C" "A" "G" "A" "A" "T" "G" "T" "G" "C" "A" "G" "C" "A" "T" "C" "C" "G"
- [595] "G" "A" "T" "C" "G" "C" "G" "G" "C" "C" "C" "T" "A" "T" "T" "A" "C" "G"
- [613] "G" "T" "A" "A" "T" "T" "C" "G" "G" "T" "G" "G" "T" "G" "G" "T" "A" "G"
- [631] "G" "C" "C" "C" "C" "A" "A" "T" "C" "T" "G" "G" "T" "T" "C" "A" "A" "G"
- [649] "A" "C" "T" "A" "G" "C" "G" "A" "C" "T" "G" "G" "G" "G" "C" "A" "G" "T"
- [667] "G" "C" "T" "T" "A" "C" "T" "A" "C" "G" "G" "C" "G" "T" "T" "A" "T" "G"
- [685] "T" "C" "C" "A" "G" "G" "C" "T" "T" "A" "A" "T" "G" "T" "T" "T" "G" "A"
- [703] "T" "G" "A" "T" "A" "C" "C" "G" "T" "G" "C" "T" "T" "C" "C" "A" "T" "A"
- [721] "A" "G" "A" "T" "T" "G" "C" "A" "T" "G" "C" "T" "C" "G" "A" "A" "C" "G"
- [739] "T" "G" "T" "G" "C" "G" "T" "G" "A" "T" "G" "C" "A" "T" "T" "A" "T" "G"
- [757] "C" "C" "G" "A" "A" "G" "G" "A" "T" "A" "G" "A" "G" "C" "C" "C" "A" "C"
- [775] "T" "A" "A" "T" "A" "A" "T" "G" "G" "G" "T" "A" "T" "T" "A" "A" "G" "C"
- [793] "G" "T" "C" "G" "G" "T" "A" "G" "T" "A" "C" "T" "A" "T" "G" "A" "T" "T"
- [811] "A" "C" "A" "T" "C" "A" "A" "C" "C" "T" "G" "G" "T" "C" "G" "G" "T" "G"
- [829] "C" "T" "A" "C" "T" "T" "T" "C" "T" "G" "T" "A" "A" "T" "C" "A" "T" "T"
- [847] "G" "C" "C" "A" "G" "T" "A" "G" "T" "T" "G" "G" "A" "T" "A" "C" "T" "A"
- [865] "A" "T" "A" "G" "T" "A" "A" "C" "T" "G" "G" "A" "A" "A" "C" "A" "C" "G"
- [883] "G" "A" "C" "A" "G" "T" "C" "G" "T" "A" "A" "C" "A" "G" "C" "G" "G" "A"
- [901] "A" "A" "C" "G" "A" "T" "T" "A" "T" "C" "C" "G" "G" "T" "A" "A" "T" "A"
- [919] "A" "A" "C" "A" "A" "G" "G" "A" "C" "C" "C" "C" "A" "G" "A" "A" "G" "A"
- [937] "C" "G" "A" "T" "A" "A" "C" "A" "A" "C" "A" "A" "G" "G" "T" "A" "G" "G"
- [955] "G" "T" "C" "C" "C" "T" "A" "C" "A" "A" "C" "C" "G" "T" "T" "G" "A" "A"
- [973] "A" "G" "C" "G" "G" "T" "C" "G" "T" "C" "G" "C" "T" "A" "A" "C" "C" "C"
- [991] "A" "A" "C" "C" "A" "C" "T" "A" "T" "G" "T" "T" "C" "A" "G" "A" "A" "C"
-[1009] "T" "T" "G" "A" "A" "T" "G" "T" "T" "A" "T" "T" "T" "T" "T" "T" "G" "C"
-[1027] "T" "A" "T" "A" "C" "G" "A" "A" "C" "A" "G" "C" "A" "C" "T" "T" "G" "C"
-[1045] "G" "A" "T" "G" "T" "A" "T" "G" "T" "C" "A" "G" "A" "G" "T" "G" "G" "A"
-[1063] "T" "C" "T" "G" "C" "G" "A" "A" "T" "G" "A" "T" "G" "C" "C" "C" "T" "C"
-[1081] "T" "C" "A" "G" "A" "C" "C" "C" "G" "T" "T" "C" "T" "T" "C" "G" "T" "T"
-[1099] "C" "C" "C" "G" "C" "A" "T" "T" "A" "A" "C" "C" "C" "T" "T" "C" "A" "A"
-[1117] "T" "G" "C" "G" "T" "G" "T" "A" "T" "C" "A" "G" "C" "A" "C" "G" "A" "T"
-[1135] "G" "C" "T" "T" "G" "G" "T" "T" "T" "A" "A" "T" "T" "T" "C" "C" "G" "G"
-[1153] "G" "C" "T" "A" "C" "C" "C" "C" "C" "A" "C" "A" "A" "T" "G" "A" "C" "G"
-[1171] "A" "C" "A" "T" "T" "G" "G" "A" "C" "T" "A" "G" "T" "A" "C" "A" "A" "A"
-[1189] "T" "T" "A" "G" "T" "C" "G" "G" "T" "A" "T" "A" "G" "C" "T" "T" "A" "A"
-[1207] "T" "G" "C" "A" "G" "T" "T" "C" "A" "A" "G" "A" "C" "C" "T" "T" "A" "T"
-[1225] "T" "T" "T" "C" "G" "C" "T" "A" "G" "G" "A" "A" "G" "A" "A" "G" "C" "G"
-[1243] "T" "T" "C" "G" "G" "T" "T" "G" "G" "G" "A" "C" "C" "C" "C" "G" "A" "G"
-[1261] "C" "T" "T" "C" "G" "T" "A" "C" "A" "G" "G" "T" "C" "G" "C" "A" "C" "A"
-[1279] "T" "A" "C" "C" "G" "T" "T" "G" "C" "A" "C" "T" "C" "G" "T" "A" "G" "T"
-[1297] "A" "A" "A" "C" "G" "A" "G" "T" "T" "T" "A" "G" "G" "T" "C" "A" "T" "T"
-[1315] "G" "A" "A" "A" "C" "G" "G" "A" "T" "A" "A" "A" "G" "G" "C" "A" "A" "G"
-[1333] "A" "A" "T" "T" "T" "A" "T" "C" "C" "G" "A" "G" "A" "T" "T" "A" "G" "T"
-[1351] "C" "T" "A" "A" "G" "A" "A" "T" "T" "T" "C" "A" "G" "T" "G" "G" "A" "T"
-[1369] "C" "A" "T" "A" "G" "T" "T" "A" "T" "A" "T" "G" "A" "G" "A" "T" "A" "G"
-[1387] "A" "G" "G" "T" "C" "T" "T" "T" "G" "T" "C" "T" "G" "T" "T" "T" "T" "G"
-[1405] "T" "T" "G" "T" "A" "T" "C" "G" "C" "T" "T" "T" "T" "T" "T" "C" "G" "G"
-[1423] "T" "G" "A" "C" "T" "A" "C" "G" "A" "G" "A" "T" "T" "A" "C" "T" "C" "A"
-[1441] "C" "G" "G" "A" "G" "G" "A" "A" "T" "T" "T" "A" "A" "G" "A" "G" "C" "T"
-[1459] "C" "A" "A" "C" "A" "A" "A" "G" "A" "T" "T" "C" "G" "C" "G" "C" "C" "C"
-[1477] "C" "T" "C" "T" "T" "G" "T" "T" "A" "G" "A" "T" "T" "G" "C" "T" "G" "C"
-[1495] "G" "C" "C" "A" "C" "C"
+   [1] "G" "A" "C" "C" "G" "G" "T" "C" "G" "G" "C" "A" "A" "G" "A" "G" "G" "A"
+  [19] "T" "A" "C" "A" "G" "C" "G" "C" "T" "T" "T" "C" "T" "T" "C" "C" "T" "T"
+  [37] "G" "A" "C" "T" "C" "A" "A" "C" "A" "G" "C" "C" "A" "A" "C" "C" "C" "G"
+  [55] "G" "T" "C" "T" "C" "T" "T" "A" "A" "G" "C" "G" "T" "T" "T" "C" "T" "A"
+  [73] "T" "G" "C" "G" "T" "T" "G" "C" "T" "A" "T" "C" "A" "G" "C" "C" "G" "C"
+  [91] "A" "C" "C" "G" "T" "T" "G" "A" "C" "G" "A" "A" "T" "G" "T" "C" "G" "T"
+ [109] "T" "A" "A" "C" "T" "C" "C" "G" "A" "T" "G" "C" "A" "C" "T" "C" "A" "A"
+ [127] "G" "G" "A" "A" "C" "G" "A" "A" "G" "G" "C" "A" "C" "A" "A" "A" "T" "T"
+ [145] "A" "A" "T" "T" "A" "A" "G" "G" "T" "C" "C" "C" "C" "G" "T" "T" "A" "G"
+ [163] "T" "A" "T" "T" "C" "A" "T" "C" "T" "C" "G" "C" "C" "A" "C" "A" "A" "A"
+ [181] "G" "A" "T" "T" "C" "G" "A" "C" "G" "C" "A" "A" "T" "G" "T" "A" "A" "G"
+ [199] "A" "C" "A" "G" "T" "A" "A" "A" "C" "A" "A" "T" "C" "T" "T" "G" "C" "C"
+ [217] "G" "G" "T" "C" "C" "A" "T" "T" "C" "C" "T" "C" "T" "G" "G" "A" "A" "G"
+ [235] "G" "G" "G" "C" "G" "G" "A" "A" "A" "T" "C" "A" "C" "A" "T" "T" "T" "G"
+ [253] "A" "G" "T" "T" "A" "T" "C" "A" "T" "C" "C" "T" "T" "G" "A" "T" "T" "A"
+ [271] "C" "T" "T" "G" "T" "G" "G" "T" "T" "T" "G" "C" "A" "G" "A" "T" "T" "T"
+ [289] "G" "G" "A" "A" "A" "C" "C" "C" "T" "G" "G" "G" "G" "C" "G" "A" "C" "A"
+ [307] "G" "G" "A" "T" "A" "A" "G" "T" "C" "A" "C" "A" "A" "C" "A" "G" "A" "A"
+ [325] "A" "A" "G" "A" "T" "T" "C" "A" "C" "G" "T" "G" "C" "G" "G" "A" "T" "C"
+ [343] "T" "T" "T" "A" "A" "T" "T" "C" "T" "A" "C" "G" "A" "A" "G" "T" "G" "G"
+ [361] "G" "T" "C" "T" "G" "T" "T" "G" "G" "G" "G" "C" "T" "A" "C" "C" "G" "T"
+ [379] "C" "G" "T" "G" "C" "G" "A" "G" "T" "G" "T" "A" "T" "A" "T" "C" "C" "A"
+ [397] "C" "A" "A" "C" "A" "G" "T" "G" "C" "C" "T" "T" "A" "G" "G" "T" "G" "G"
+ [415] "G" "A" "A" "G" "G" "T" "G" "C" "G" "A" "C" "T" "T" "A" "A" "T" "G" "A"
+ [433] "T" "T" "T" "C" "G" "C" "A" "G" "A" "A" "T" "C" "T" "C" "T" "C" "T" "C"
+ [451] "C" "C" "C" "T" "A" "G" "T" "C" "A" "T" "T" "T" "C" "T" "A" "C" "T" "G"
+ [469] "A" "G" "T" "G" "G" "A" "T" "C" "C" "A" "T" "T" "A" "T" "T" "A" "C" "C"
+ [487] "T" "G" "T" "G" "A" "T" "A" "C" "C" "G" "A" "G" "G" "G" "A" "A" "C" "T"
+ [505] "C" "T" "A" "T" "A" "C" "A" "G" "C" "T" "A" "G" "A" "G" "C" "A" "T" "A"
+ [523] "G" "G" "A" "A" "A" "T" "G" "A" "A" "C" "G" "G" "C" "A" "G" "C" "A" "G"
+ [541] "C" "C" "A" "G" "G" "C" "C" "G" "G" "A" "A" "C" "T" "C" "T" "G" "G" "T"
+ [559] "G" "G" "G" "G" "A" "G" "G" "T" "C" "A" "A" "A" "G" "A" "T" "A" "A" "C"
+ [577] "G" "C" "A" "T" "G" "C" "A" "A" "G" "T" "A" "G" "T" "A" "T" "C" "C" "G"
+ [595] "G" "C" "G" "C" "G" "C" "G" "C" "T" "G" "T" "T" "G" "G" "C" "T" "T" "T"
+ [613] "T" "G" "A" "T" "T" "C" "G" "A" "T" "C" "T" "T" "A" "A" "A" "T" "C" "A"
+ [631] "T" "G" "G" "G" "G" "T" "T" "G" "A" "A" "G" "C" "C" "A" "T" "A" "G" "T"
+ [649] "G" "G" "A" "A" "A" "G" "A" "A" "C" "T" "C" "C" "G" "T" "C" "A" "A" "T"
+ [667] "T" "A" "C" "C" "G" "G" "T" "C" "T" "G" "T" "C" "C" "T" "A" "A" "A" "A"
+ [685] "A" "A" "C" "A" "G" "G" "G" "G" "C" "C" "C" "A" "A" "A" "C" "G" "A" "G"
+ [703] "A" "G" "A" "A" "T" "A" "A" "G" "A" "T" "C" "C" "A" "T" "C" "A" "G" "T"
+ [721] "C" "C" "C" "C" "T" "A" "G" "A" "A" "G" "A" "G" "C" "G" "A" "C" "G" "C"
+ [739] "C" "T" "C" "G" "T" "C" "T" "C" "A" "G" "T" "G" "C" "G" "G" "C" "A" "T"
+ [757] "G" "C" "G" "G" "A" "G" "G" "A" "T" "G" "G" "C" "A" "A" "G" "C" "C" "G"
+ [775] "T" "G" "G" "A" "G" "C" "A" "C" "A" "C" "G" "C" "C" "G" "G" "A" "G" "T"
+ [793] "C" "C" "T" "G" "G" "G" "G" "A" "C" "C" "C" "G" "A" "G" "T" "G" "A" "A"
+ [811] "G" "A" "G" "T" "C" "A" "T" "C" "A" "T" "G" "T" "G" "C" "T" "G" "C" "T"
+ [829] "A" "G" "C" "A" "T" "T" "T" "G" "G" "A" "G" "A" "A" "A" "C" "T" "C" "A"
+ [847] "A" "A" "A" "G" "G" "G" "T" "G" "T" "G" "A" "T" "T" "G" "G" "A" "C" "G"
+ [865] "A" "A" "T" "C" "T" "A" "A" "C" "T" "G" "G" "T" "C" "C" "A" "A" "G" "C"
+ [883] "G" "A" "A" "T" "A" "C" "T" "C" "A" "A" "C" "C" "T" "G" "A" "A" "G" "T"
+ [901] "T" "T" "A" "A" "T" "C" "T" "A" "A" "C" "C" "C" "A" "A" "A" "C" "C" "G"
+ [919] "A" "T" "A" "A" "C" "T" "T" "G" "A" "G" "T" "T" "G" "G" "C" "T" "A" "C"
+ [937] "T" "A" "A" "G" "G" "A" "C" "A" "T" "C" "G" "A" "A" "G" "C" "G" "A" "G"
+ [955] "G" "T" "G" "G" "T" "G" "T" "C" "C" "G" "T" "C" "G" "T" "T" "G" "C" "A"
+ [973] "T" "G" "T" "C" "C" "A" "A" "C" "C" "C" "T" "C" "T" "T" "T" "C" "A" "A"
+ [991] "C" "G" "T" "C" "A" "G" "T" "A" "T" "G" "C" "T" "C" "A" "A" "C" "G" "A"
+[1009] "G" "T" "G" "T" "G" "G" "T" "T" "C" "G" "A" "G" "C" "A" "T" "T" "G" "C"
+[1027] "G" "T" "G" "T" "A" "C" "C" "T" "G" "C" "C" "T" "C" "C" "G" "G" "T" "G"
+[1045] "A" "G" "C" "G" "T" "C" "G" "A" "G" "A" "A" "G" "T" "G" "A" "A" "T" "T"
+[1063] "G" "G" "A" "A" "A" "C" "A" "A" "G" "C" "C" "G" "T" "G" "T" "A" "G" "A"
+[1081] "A" "A" "G" "T" "A" "G" "T" "T" "G" "C" "G" "T" "G" "C" "G" "C" "T" "G"
+[1099] "T" "A" "C" "G" "T" "G" "G" "G" "T" "A" "G" "G" "T" "C" "C" "A" "T" "A"
+[1117] "T" "C" "G" "T" "C" "A" "G" "A" "G" "A" "C" "C" "A" "G" "C" "G" "C" "T"
+[1135] "T" "T" "A" "G" "G" "C" "G" "C" "C" "C" "A" "T" "T" "G" "A" "G" "G" "G"
+[1153] "T" "C" "T" "C" "C" "A" "T" "A" "C" "C" "T" "A" "T" "G" "T" "G" "A" "G"
+[1171] "A" "G" "G" "G" "G" "T" "G" "C" "C" "G" "T" "T" "T" "A" "A" "A" "C" "G"
+[1189] "C" "T" "C" "C" "T" "G" "G" "C" "C" "C" "G" "T" "C" "A" "A" "T" "G" "T"
+[1207] "C" "C" "G" "T" "C" "G" "G" "C" "C" "A" "C" "C" "A" "C" "G" "A" "C" "A"
+[1225] "A" "T" "T" "C" "G" "T" "T" "A" "C" "C" "A" "G" "A" "A" "C" "G" "A" "G"
+[1243] "T" "G" "T" "A" "G" "T" "A" "T" "T" "A" "G" "A" "A" "C" "C" "C" "C" "A"
+[1261] "A" "G" "G" "T" "A" "C" "T" "A" "G" "T" "T" "A" "A" "T" "G" "A" "C" "T"
+[1279] "C" "T" "A" "C" "C" "C" "G" "C" "G" "T" "C" "C" "T" "C" "T" "T" "C" "A"
+[1297] "C" "A" "T" "T" "T" "G" "A" "T" "G" "C" "G" "C" "A" "G" "G" "A" "G" "C"
+[1315] "A" "C" "T" "G" "A" "G" "A" "C" "G" "T" "A" "C" "T" "A" "G" "T" "G" "G"
+[1333] "C" "G" "C" "T" "A" "T" "A" "T" "T" "C" "G" "T" "G" "T" "C" "T" "G" "A"
+[1351] "G" "G" "C" "G" "G" "A" "G" "C" "G" "T" "A" "G" "C" "T" "A" "C" "G" "A"
+[1369] "G" "A" "G" "G" "C" "C" "C" "A" "A" "A" "C" "G" "T" "A" "G" "C" "C" "G"
+[1387] "T" "A" "T" "T" "G" "T" "A" "G" "G" "G" "T" "T" "A" "A" "T" "G" "T" "A"
+[1405] "T" "A" "A" "T" "G" "C" "T" "T" "A" "G" "T" "C" "C" "C" "A" "G" "A" "C"
+[1423] "G" "T" "C" "A" "T" "G" "A" "A" "A" "C" "T" "G" "A" "T" "T" "C" "C" "A"
+[1441] "G" "G" "G" "C" "C" "T" "A" "G" "G" "C" "A" "G" "G" "A" "C" "T" "G" "A"
+[1459] "C" "G" "G" "T" "A" "A" "G" "A" "A" "G" "C" "T" "C" "G" "C" "G" "C" "C"
+[1477] "T" "G" "G" "C" "T" "T" "T" "G" "A" "T" "T" "A" "A" "G" "T" "T" "C" "G"
+[1495] "G" "A" "A" "A" "T" "T"
 ```
 :::
 
@@ -153,7 +153,7 @@ paste(randGenome2, collapse = "")
 
 ::: {.cell-output .cell-output-stdout}
 ```
-[1] "GAGCACGGGGTCAGTCGGCTAGTCGACTGAAAACCTCGTGCATTGAGCTAACATAAGCAAGCGCGCGATTCTTCCGAACTCGAAGCCGTGAAAATCCACGCCTCCCAGTTGGCATTTTATGGCTGGATGTCCACCTGTGGCGTGTTGATGCAGGGTCATTACAGCACTGTTTGGCACAGTACGCATAGATTATTGCTGTTCCCGCGCGAAGGGGAGCAAGGGCCTTAACCACACATGTCCTCTCTGGTCCGTTATGGCAAACTCTATAAGGAATGAAGGCTTTTGATCACGCAGTCGTGTCTTGAATAATTTGGTTGATTCCAGAGGCACGTAACCGGCTTCAATTTGCACTGGTCATGGTCGGTTAGAGATCATCCGGGGGCGAGCCAGTTCCCATGTGGATATCTTTCAGTTTTCATCGGAGCGCGGCTTCGGACTTCTGGTCCTCTAGTTTACTCAAGGGAACGTCTGGGATATCATTCTCGGCCGCAACGGTCTTAGCTTGGGGATTAAGAGCGCTTTAGACCCCGAATACCGATGGTGTTGTTTTGCAAATCCAATTATTGCCTGGACGATCAGAATGTGCAGCATCCGGATCGCGGCCCTATTACGGTAATTCGGTGGTGGTAGGCCCCAATCTGGTTCAAGACTAGCGACTGGGGCAGTGCTTACTACGGCGTTATGTCCAGGCTTAATGTTTGATGATACCGTGCTTCCATAAGATTGCATGCTCGAACGTGTGCGTGATGCATTATGCCGAAGGATAGAGCCCACTAATAATGGGTATTAAGCGTCGGTAGTACTATGATTACATCAACCTGGTCGGTGCTACTTTCTGTAATCATTGCCAGTAGTTGGATACTAATAGTAACTGGAAACACGGACAGTCGTAACAGCGGAAACGATTATCCGGTAATAAACAAGGACCCCAGAAGACGATAACAACAAGGTAGGGTCCCTACAACCGTTGAAAGCGGTCGTCGCTAACCCAACCACTATGTTCAGAACTTGAATGTTATTTTTTGCTATACGAACAGCACTTGCGATGTATGTCAGAGTGGATCTGCGAATGATGCCCTCTCAGACCCGTTCTTCGTTCCCGCATTAACCCTTCAATGCGTGTATCAGCACGATGCTTGGTTTAATTTCCGGGCTACCCCCACAATGACGACATTGGACTAGTACAAATTAGTCGGTATAGCTTAATGCAGTTCAAGACCTTATTTTCGCTAGGAAGAAGCGTTCGGTTGGGACCCCGAGCTTCGTACAGGTCGCACATACCGTTGCACTCGTAGTAAACGAGTTTAGGTCATTGAAACGGATAAAGGCAAGAATTTATCCGAGATTAGTCTAAGAATTTCAGTGGATCATAGTTATATGAGATAGAGGTCTTTGTCTGTTTTGTTGTATCGCTTTTTTCGGTGACTACGAGATTACTCACGGAGGAATTTAAGAGCTCAACAAAGATTCGCGCCCCTCTTGTTAGATTGCTGCGCCACC"
+[1] "GACCGGTCGGCAAGAGGATACAGCGCTTTCTTCCTTGACTCAACAGCCAACCCGGTCTCTTAAGCGTTTCTATGCGTTGCTATCAGCCGCACCGTTGACGAATGTCGTTAACTCCGATGCACTCAAGGAACGAAGGCACAAATTAATTAAGGTCCCCGTTAGTATTCATCTCGCCACAAAGATTCGACGCAATGTAAGACAGTAAACAATCTTGCCGGTCCATTCCTCTGGAAGGGGCGGAAATCACATTTGAGTTATCATCCTTGATTACTTGTGGTTTGCAGATTTGGAAACCCTGGGGCGACAGGATAAGTCACAACAGAAAAGATTCACGTGCGGATCTTTAATTCTACGAAGTGGGTCTGTTGGGGCTACCGTCGTGCGAGTGTATATCCACAACAGTGCCTTAGGTGGGAAGGTGCGACTTAATGATTTCGCAGAATCTCTCTCCCCTAGTCATTTCTACTGAGTGGATCCATTATTACCTGTGATACCGAGGGAACTCTATACAGCTAGAGCATAGGAAATGAACGGCAGCAGCCAGGCCGGAACTCTGGTGGGGAGGTCAAAGATAACGCATGCAAGTAGTATCCGGCGCGCGCTGTTGGCTTTTGATTCGATCTTAAATCATGGGGTTGAAGCCATAGTGGAAAGAACTCCGTCAATTACCGGTCTGTCCTAAAAAACAGGGGCCCAAACGAGAGAATAAGATCCATCAGTCCCCTAGAAGAGCGACGCCTCGTCTCAGTGCGGCATGCGGAGGATGGCAAGCCGTGGAGCACACGCCGGAGTCCTGGGGACCCGAGTGAAGAGTCATCATGTGCTGCTAGCATTTGGAGAAACTCAAAAGGGTGTGATTGGACGAATCTAACTGGTCCAAGCGAATACTCAACCTGAAGTTTAATCTAACCCAAACCGATAACTTGAGTTGGCTACTAAGGACATCGAAGCGAGGTGGTGTCCGTCGTTGCATGTCCAACCCTCTTTCAACGTCAGTATGCTCAACGAGTGTGGTTCGAGCATTGCGTGTACCTGCCTCCGGTGAGCGTCGAGAAGTGAATTGGAAACAAGCCGTGTAGAAAGTAGTTGCGTGCGCTGTACGTGGGTAGGTCCATATCGTCAGAGACCAGCGCTTTAGGCGCCCATTGAGGGTCTCCATACCTATGTGAGAGGGGTGCCGTTTAAACGCTCCTGGCCCGTCAATGTCCGTCGGCCACCACGACAATTCGTTACCAGAACGAGTGTAGTATTAGAACCCCAAGGTACTAGTTAATGACTCTACCCGCGTCCTCTTCACATTTGATGCGCAGGAGCACTGAGACGTACTAGTGGCGCTATATTCGTGTCTGAGGCGGAGCGTAGCTACGAGAGGCCCAAACGTAGCCGTATTGTAGGGTTAATGTATAATGCTTAGTCCCAGACGTCATGAAACTGATTCCAGGGCCTAGGCAGGACTGACGGTAAGAAGCTCGCGCCTGGCTTTGATTAAGTTCGGAAATT"
 ```
 :::
 :::
@@ -465,7 +465,7 @@ In challenge 2 we are going to create a random genome function that is associate
 
 ```{.r .cell-code}
 rand_Genome <- function(genomeString, nucleotides){
-  nucleotides <- c("A","G","C", "T")
+  nucleotides <- c("A","G","C","T")
   rand_Genome <- sample(nucleotides, size = genomeString, replace = TRUE)
   
 rand_Genome <- paste(rand_Genome, collapse = "")
@@ -606,12 +606,12 @@ my_genome
 :::
 
 ```{.r .cell-code}
-count_pattern(my_genome, "CT")
+count_pattern(my_genome, "CA")
 ```
 
 ::: {.cell-output .cell-output-stdout}
 ```
-[1] 0
+[1] 2
 ```
 :::
 :::
@@ -659,3 +659,187 @@ count_pattern(genomeString, pattern)
 :::
 
 ## DNA Replication Part 2
+
+### Challenge 1
+Below we are practicing using the generate_k_mers function with a genome to obtain a list of several 3-mers. 
+
+::: {.cell}
+
+```{.r .cell-code}
+generate_k_mers("ACACAGACATCCCACCCC",3)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+ [1] "ACA" "CAC" "ACA" "CAG" "AGA" "GAC" "ACA" "CAT" "ATC" "TCC" "CCC" "CCA"
+[13] "CAC" "ACC" "CCC" "CCC"
+```
+:::
+
+```{.r .cell-code}
+mystring <- c("T", "a", "h", "a")
+for(i in 1:4){
+  print(mystring[i])
+}
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] "T"
+[1] "a"
+[1] "h"
+[1] "a"
+```
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+generate_frequent_kmers <- function(genomeString, k){
+  #get the kmers
+  kmers <- generate_k_mers(genomeString, k)
+  kmers <- unique(kmers)
+#count occurrences
+  kmer_counts <- rep(0, length(kmers))
+  for(i in 1:length(kmers)){
+   kmers_counts[i] <- count_pattern(genomeString, kmers[i])
+  }
+max_freq <- max(kmer_counts)
+freq_kmers <- kmers[kmercounts == max_freq]
+return(freq_kmers)
+}
+```
+:::
+
+The function above allows us to use generate_k_mers and count_pattern to output the most frequent kmers along with giving us a maximum count. 
+### Challenge 2
+Using rev() to give us the reverse complement 
+
+::: {.cell}
+
+```{.r .cell-code}
+reverse_complement <- function(genomeSubString) {
+  #reverse genomeSubstring
+  splits <- strsplit(genomeSubString, "") [[1]]
+  
+  reversed_splits <- rev(splits)
+  
+rev_complement <- c()
+  #Use if statements to construct complement of the reversed genomesubstring
+  for(i in 1:length(reversed_splits)){
+    if(reversed_splits[i] == "A"){
+      rev_complement <- append(rev_complement, "T")
+    }
+    if(reversed_splits[i] == "T"){
+      rev_complement <- append(rev_complement, "A")
+    }
+    if(reversed_splits[i] == "C"){
+      rev_complement <- append(rev_complement, "G")
+    }
+    if(reversed_splits[i] == "G"){
+      rev_complement <- append(rev_complement, "C")
+    }
+  }
+  return(rev_complement)
+}
+```
+:::
+
+Above, we have created a function that gives us the reverse complenet genome - where the genome is flipped in the anti-parallel direction and mathced to its significant pair. So, A would correspond with T and C would correspond with G. 
+
+::: {.cell}
+
+```{.r .cell-code}
+reverse_complement("CGATC")
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] "G" "A" "T" "C" "G"
+```
+:::
+:::
+
+
+### DNA Replication Part 3
+
+
+::: {.cell}
+
+```{.r .cell-code}
+initialize_k_mer_dict <- function(k){
+  nucleotides <- c("A", "C", "G", "T")
+
+  k_mers_dict <- expand.grid(rep(list(nucleotides), k)) %>%
+    unite("k_mers", everything(), remove = TRUE, sep = "") %>%
+    unique() %>%
+    mutate(count = 0)
+  
+  return(k_mers_dict)
+}
+
+k_mers_dict <- initialize_k_mer_dict(9)
+```
+:::
+
+Below we are creating a dictionary of all the possible k-mers and initializing it with the count of 0 so that as we move forward through part 3, we can increase the count values. The 9 represents the amount of kmers we want specifically. 
+### Challenge 1
+In the challenge below, we are creating a function that allows us to look for high frequency kmers that occur in a section of the genome -- this will aid us in finding out DnaA boxes. To do this, we use parameters L which is the length of the window, k which is the kmer frequency, and t which tells us how much out kmers are appearing. Moving throughout the code, we will need to shift over one nucleotide, losing one in the beginning and adding one on the end of our window length. We are modifying our function to do this so that we can count each kmer value we desire and look for t amount of replications. 
+
+::: {.cell}
+
+```{.r .cell-code}
+#window size = L 
+#k = length of kmer
+clump_finding <- function(genome, L, k, t){
+  initial_window <- str_sub(genome, start = 1, end = L)
+  #generating a kmer dictionary
+  my_dict <- initialize_k_mer_dict(k)
+  ng <- nchar(genome)
+  #count kmers in our window
+  for(i in 1:(L-(k+1))) {
+    current_pattern <- str_sub(initial_window, i, i+(k-1))
+    #look for kmer in current pattern in kmer column
+    curr_count <- count_pattern(initial_window, current_pattern)
+    #write curr count in the count column of that row
+    curr_row <- which(my_dict$k_mer == current_pattern)
+    my_dict$count[curr_row] <- curr_count
+  }
+  cadidates <- my_dict %>%
+  filter(count >= t) %>%
+  pull(k_mer)
+  for(j in 2:(ng-(L-2))) {
+    remove_kmer <- str_sub(genome, j-1, (j-1)+(k-1))
+    add_kmer <- str_sub(genome, j+(l-2), - (k-1), j +(L-2))
+     
+    rem_row <- which(kmer_dict$k_mers == remove_kmer)
+    add_row <- which(kmer_dict$k_mers == add_kmer)
+    
+    kmer_dict$count[rem_row] <- kmer_dict$count[rem_row] -1
+    kmer_dict$count[add_row] <- kmer_dict$count[add_row] +1
+    
+    if(kmer_dict$count[add_row] >= t){
+      canidates <- append(canidates, add_kmer)
+      canidates <- unique(canidates)
+      
+    }
+  }
+   return(canidates)
+}
+```
+:::
+
+
+Below, we are going to apply out clump finding function to the E.coli gene. 
+
+::: {.cell}
+
+```{.r .cell-code}
+e.coli <- scan("~/Desktop/ecoli.txt", what = "character", sep = NULL)
+
+#clump_finding(e.coli, 500, 9, 3)
+```
+:::
+
+Because this e.coli gene with clump finding takes a very long time to run, our next goal is optimize the algorithm and figure out if there is a way we can get to the DNAa box quicker. 
