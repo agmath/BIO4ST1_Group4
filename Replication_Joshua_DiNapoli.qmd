@@ -363,8 +363,6 @@ my_genome
 count_pattern(my_genome, "T")
 ```
 
-## Challenge 6
-
 # Origin of Replication II
 
 ## Challenge 1
@@ -444,7 +442,9 @@ With the function complement, the only thing left to do is call the function and
 
 ## Challenge 1
 
-The goal of this challenge is to identify what parts of a genome represent the origin of replication. In the genome, these are representend as DNABoxes. These parts of the genome can be identified by clumps of frequent nucleotides in a string. In our last challenge, we created a function that found frequent k_mers (variable amount of nucleotides) in a genome. However this function will find
+The goal of this challenge is to identify what parts of a genome represent the origin of replication. In the genome, these are representend as DNABoxes. These parts of the genome can be identified by clumps of frequent nucleotides in a string. In our last challenge, we created a function that found frequent k_mers (variable amount of nucleotides) in a genome. However this function will find all the potential k_mers in a subsetted window (defined by its length, L) and add it to a count in a dictionary. From there it will create a list of potential candidates based on the frequency of the k_mers.
+
+Creating the k_mer dictionary requries only k as an argument. The variable nucleotide is defined and assigned to k_mers_dict. From there the variable makes sure that all the k_mers are unique. This ultimately creates a dictionary that includes all potential combinations of A,C,G,T (the type of nucleotides) ranging from 0 to 9.
 
 ```{r}
 initialize_k_mer_dict <- function(k){
@@ -462,6 +462,18 @@ k_mers_dict <- initialize_k_mer_dict(9)
 
 k_mers_dict
 ```
+
+With our dictionary created, we can now use it to find our clumps. Our function will use four arguments. The genome will represent whatever genome we import (in this challenge it is rand_Genome but it could be used on the e coli genome as well). L will represent the length of the window. The window is the amount of nucleotides in a window we will examine for frequent k_mers (candidates for our DNABoxes). K will represent the length of our k_mers. T is the threshold (the count or frequency of specific k_mers) we must reach before considering the k_mer as a candidate.
+
+We will also describe the amount of characters (nchar) of the genome to a variable known as ng. The initial window is designed to be a string sub of the genome and starts with the first nucleotide. It extends to L which will be the length of our genome.
+
+With the intial window defined, we need to develop a pattern that will detect the most frequent k_mers in that window and add it to the dictionary. To do this, we will develop a for loop that runs through every nucleotide from the first to L-(k-1). This will be hard to visualize but the idea is our for loop will run to the start of the very last K_mer. If our K_mer is nine for example, we will need to get the value of 8 to cutoff at the first nucleotide of the last k_mer. L-K would subtract nine while the -1 equals out to -8 which gets us to the first nucleotide.
+
+With the window of our for_loop defined, we have to create a pattern that will look through an entire k_mer not just one nucleotide at a time. This will be defined as curr_pattern and is a str_sub of the initial window. It begins with the first nucleotide of the k_mer (i) and i + (k-1) which is the last nucleotide of the k_mer. For example if our k_mer is nine, we want the ninth nucleotide to be the last in our pattern. To get this we cant just to k because that implies we are going to the tenth element. To get to the ninth element, we have to add a k to nucleotide (gets us ten) and minus 1 to get to the end of the k_mer. Using our pattern in the initial window, we will call the function count_pattern and assign the k_mer to a variable called curr_count. Then we need to match our pattern (the k_mer we read in our window) with a table in our dictionary. This is accomplished by searching through our dictionary (my_dict) and equaling it to curr_pattern. We will save this matched k_mer to the variable curr_row. Finally we call the curr_Row and assign it to the count we found.
+
+Once the for loop has gone through our entire window, we create a new variable called candidates. This will look through our dictionary for any k_mers that have a count that exceed our threshold (t) and then pull those k_mers. We are now slowly building a list of candidate k_mers that could be our origin of replication based on their frequency.
+
+However, this only covers the initial window. We have to slide the window through our thereotical genome. To do this is a bit complex. We need to shift our window by 1 k_mer by removing the first nucleotide and starting at the second nucleotide. We then need to add
 
 ```{r}
 clump_finding <- function(genome, L, k, t){
@@ -509,3 +521,86 @@ clump_finding(myGenome,500, 2, 9)
 ```
 
 Since it should work for every genome you put in the function, avoid defining the genome right away. DNABoxes are usually divisible by three (due to presence of codons) but is not always nine (depends on species). String sub will allow us to grab a part of a string vs string split which actually splits the string.\
+
+# Origin of Replication IV
+
+## Challenge 1
+
+```{r}
+SKEW <- function(genome){
+  ng <- nchar(genome)
+  skew_value <- rep(0,ng)
+  for (i in 2:(ng - 1)){
+    genome_string <- str_sub(genome, i, i)
+    if (genome_string == "G"){
+      skew_value[i] = skew_value[i-1] + 1
+    }
+    if (genome_string == "C"){
+      skew_value[i] = skew_value[i-1] - 1
+    }
+    else{
+      skew_value[i] = skew_value[i-1] 
+    }
+  }
+return(skew_value)
+}
+
+skew_genome <- rand_genome
+SKEW(skew_genome)
+```
+
+```{r}
+find_skew_min <- function(genome){
+  ng <- nchar(genome)
+  skew_value <- rep(0,ng)
+  for (i in 2:(ng - 1)){
+    genome_string <- str_sub(genome, i, i)
+    if (genome_string == "G"){
+      skew_value[i] = skew_value[i-1] + 1
+    }
+    if (genome_string == "C"){
+      skew_value[i] = skew_value[i-1] - 1
+    }
+    else{
+      skew_value[i] = skew_value[i-1] 
+    }
+  }
+
+  min_skew <- min(skew_value)
+  min_skew_loc <- which(skew_value == min_skew)
+  return(min_skew_loc)  
+}
+skew_genome <- rand_genome
+find_skew_min(skew_genome)
+```
+
+# Origin of Replication V
+
+## Challenge 1
+
+```{r}
+getDistance <- function(stringA, stringB){
+  k <- nchar(stringA)
+  distance <- 0
+   if(nchar(stringA) != nchar(stringB)){
+        stop("ERROR sequences do not have the same length")
+   }
+ for (i in 1:k){
+   if (str_sub(stringA,i,i) != str_sub(stringB,i,i)){
+     distance <- distance + 1 }
+ }
+  return(distance)
+}
+
+getDistance("ACCCCC","AGCGGA")
+
+```
+
+## Challenge 2
+
+```{r}
+find_near_pattern <- function(genomeString, pattern, d){
+  d = 0
+  
+}
+```
